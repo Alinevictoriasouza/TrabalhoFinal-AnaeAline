@@ -22,13 +22,10 @@ app.use(express.static('public'));
 //   res.render('autenticar');
 // })
 
-app.get('/', async function (req, res) {
-  res.render("home")
-})
 
-app.get('/listar', async function (req, res) {
+app.get('/', async function (req, res) {
   const produtos = await produto.findAll()
-  res.render("listar", { produtos });
+  res.json(produtos);
 })
 
 app.get('/cadastrar', async function (req, res) {
