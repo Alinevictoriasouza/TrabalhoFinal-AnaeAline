@@ -1,13 +1,10 @@
 // JWT
 require("dotenv-safe").config();
-const jwt = require('jsonwebtoken');
-var { expressjwt: expressJWT } = require("express-jwt");
 const cors = require('cors');
 
-var cookieParser = require('cookie-parser')
 
 const express = require('express');
-const { usuario } = require('./models');
+const { produto } = require('./models');
 
 const app = express();
 
@@ -19,7 +16,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
-app.use(cookieParser());
+// app.use(cookieParser());
 
 // app.get('/autenticar', async function (req, res) {
 //   res.render('autenticar');
@@ -41,15 +38,7 @@ app.get('/cadastrar', async function (req, res) {
 app.post('/cadastra', async function (req, res) {
     const produto_ = await produto.create(req.body)
   res.json(produto_)
-//   const {nome, senha} = req.body
-//   const senhaEncrypt = encrypt(senha);
-//   const usuario_ = await usuario.create({
-//     nome,
-//     usuario,
-//     usuario: req.body.usuario,
-//     senha: senhaEncrypt
-//   })
-//   res.json(usuario_);
+
 })
 
 // app.post('/logar', async (req, res) => {
@@ -71,15 +60,15 @@ app.post('/cadastra', async function (req, res) {
 //   res.status(500).json({ message: 'Login inválido!' });
 // })
 
-app.post('/deslogar', function (req, res) {
-  res.cookie('token', null, { httpOnly: true });
-  res.json({ deslogado: true })
-})
+// app.post('/deslogar', function (req, res) {
+//   res.cookie('token', null, { httpOnly: true });
+//   res.json({ deslogado: true })
+// })
 
-app.get('/sobre', function (req, res) {
-  res.cookie('token', null, { httpOnly: true });
-  res.json({ sobre: true })
-})
+// app.get('/sobre', function (req, res) {
+//   res.cookie('token', null, { httpOnly: true });
+//   res.json({ sobre: true })
+// })
 
 app.listen(3100, function () {
   console.log('App de Exemplo escutando na porta 3100!')
