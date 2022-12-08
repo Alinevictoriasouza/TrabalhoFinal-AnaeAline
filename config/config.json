@@ -17,7 +17,7 @@
     "username": "rtbkiwkm",
     "password": "jJyqnceFfMfTVvI4WWRyX2OL76kiwJ6D",
     "database": "rtbkiwkm",
-    "host": "postgres://rtbkiwkm:jJyqnceFfMfTVvI4WWRyX2OL76kiwJ6D@babar.db.elephantsql.com/rtbkiwkm",
+    "host": "babar.db.elephantsql.com",
     "dialect": "postgres"
   }
 }
